@@ -68,6 +68,29 @@ const SUBMIT_GUARD_SRC = "(function(){if(window.__xxtSubmitGuard)return;window._
   "if(lg){lg.textContent+='\\n[合规] 已拦截自动提交 —— 答案已填好，请你核对后手动点「提交」';}}catch(x){}" +
   "}},true);})();";
 
+// 全自动模式下，确保脚本面板的「自动答题」勾选处于开启状态（否则会停在题目上等手动）
+async function ensureAutoQuizOn(s) {
+  if (!compliance.isAuto()) return 'skip';
+  const src = `(() => {
+    const h = document.getElementById('xt-ds-host');
+    if (!h || !h.shadowRoot) return 'no-panel';
+    const pick = (id) => h.shadowRoot.getElementById(id);
+    const out = [];
+    for (const [id, label] of [['auto-quiz', '自动答题'], ['auto-next', '自动跳节']]) {
+      const cb = pick(id);
+      if (!cb) { out.push(label + ':no-cb'); continue; }
+      if (cb.checked) { out.push(label + ':already'); continue; }
+      cb.click();
+      out.push(label + ':' + (cb.checked ? 'on' : 'fail'));
+    }
+    return out.join(',');
+  })()`;
+  try {
+    const r = await s.eval(src, {}, 8000);
+    return typeof r === 'string' ? r : (r && r.value) || '';
+  } catch (e) { return 'err'; }
+}
+
 async function installSubmitGuard(s) {
   try {
     await s.send('Page.addScriptToEvaluateOnNewDocument', { source: SUBMIT_GUARD_SRC });
@@ -878,6 +901,7 @@ function printAudit(rep) {
       await sleep(1500);
       const rateRes = await setRate(s, CFG.speed);
       if (/^set-/.test(rateRes || '')) say('倍速已设为 ' + CFG.speed + 'x', 'info');
+      { const _aq = await ensureAutoQuizOn(s); if (_aq && _aq.indexOf('on') > -1) say('全自动开关已修正：' + _aq, 'info'); else if (/no-cb|no-panel|fail/.test(_aq || '')) say('自动答题开关没打开，请手动勾选（' + _aq + '）', 'warn'); }
       await sleep(1000);
 
       // ---- 监控：脚本会自己跳下一节，这里只保安全、防停滞 ----
