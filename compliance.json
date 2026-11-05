@@ -1,0 +1,16 @@
+{
+  "mode": "auto",
+  "autoSubmit": true,
+  "examBlock": true,
+  "humanPace": true,
+  "answerMinGapMs": 1500,
+  "answerMaxGapMs": 4000,
+  "submitDelayMs": 6000,
+  "allowHosts": [
+    "chaoxing.com",
+    "deepseek.com",
+    "localhost",
+    "127.0.0.1"
+  ],
+  "maskLogs": true
+}

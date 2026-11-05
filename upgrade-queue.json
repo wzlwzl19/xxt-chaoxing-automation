@@ -1,0 +1,12 @@
+[
+  {
+    "id": "selector:loginPhone",
+    "note": "选择器全部失效，需要补充新规则",
+    "candidates": [
+      "#phone",
+      "input[name=\"phone\"]",
+      ".ipt-tel"
+    ],
+    "at": "2026-11-03 15:26:50"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "speed": 2,
+  "chapterGapSec": [
+    20,
+    60
+  ],
+  "maxRunMinutes": 120,
+  "restEveryMinutes": 45,
+  "restMinutes": 10,
+  "stallMinutes": 12,
+  "courses": [],
+  "guard": {
+    "stopAt": 100,
+    "pauseAt": 60,
+    "lockMinutes": 60
+  },
+  "maintenance": {
+    "everyMin": 30,
+    "logMaxMB": 2,
+    "logKeepKB": 200,
+    "tmpKeepDays": 3,
+    "closeIdleTabs": true,
+    "gc": true
+  },
+  "nightQuiet": {
+    "enabled": true,
+    "start": "02:30",
+    "end": "06:30"
+  }
+}

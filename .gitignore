@@ -1,0 +1,44 @@
+# 运行时产物（不进版本库）
+node_modules/
+profiles/
+logs/
+dist/
+dist-repo/
+www/
+.theme-test/
+
+# 授权与凭证
+license.key
+apikey.txt
+plan.json
+consent.json
+account.txt
+account-meta.json
+creds.dpapi
+creds.sec
+*.pem
+
+# 日志与临时文件
+*.log
+*.bak
+run.log
+guard.log
+nanny.log
+monitor*.log
+quiz-watch.log
+ap-nanny.log
+compliance-audit.log
+face-events.jsonl
+autopilot.pid
+run-*.lock
+STOP.lock
+bridge-state.json
+start-opts.json
+risk-report.json
+selfcheck.log
+evolution.log
+
+# 系统文件
+Thumbs.db
+.DS_Store
+desktop.ini

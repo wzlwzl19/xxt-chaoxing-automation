@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>学习通刷课助手</title>
+<link rel="stylesheet" href="panel.css?v=1.0.2">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="dot" id="dot"></span>
+      <strong>学习通刷课助手</strong>
+      <span class="ver">v1.0.2</span>
+    </div>
+    <button id="refresh" class="ghost" title="刷新状态">刷新</button>
+  </header>
+
+  <section class="card">
+    <div class="row">
+      <span class="label">课程</span>
+      <span class="value" id="course">—</span>
+    </div>
+    <div class="row">
+      <span class="label">当前</span>
+      <span class="value" id="chapter">—</span>
+    </div>
+    <div class="row">
+      <span class="label">进度</span>
+      <span class="value mono" id="progress">—</span>
+    </div>
+    <div class="bar"><i id="bar"></i></div>
+    <div class="row">
+      <span class="label">状态</span>
+      <span class="value" id="status">未连接</span>
+    </div>
+  </section>
+
+  <section class="actions">
+    <button id="start" class="primary">开始</button>
+    <button id="stop">停止</button>
+    <button id="next">下一节</button>
+  </section>
+
+  <section class="card">
+    <div class="row">
+      <span class="label">API Key</span>
+      <span class="value hint" id="keyState">未保存</span>
+    </div>
+    <input id="key" type="password" placeholder="sk-… 只需填一次，只存本机">
+    <div class="actions tight">
+      <button id="saveKey" class="primary">保存</button>
+      <button id="testKey">测试</button>
+    </div>
+    <p class="note">Key 存在本机浏览器里，只用于 api.deepseek.com，不经任何第三方。</p>
+  </section>
+
+  <section class="card grow">
+    <div class="row between">
+      <span class="label">日志</span>
+      <button id="clearLog" class="ghost small">清空</button>
+    </div>
+    <pre id="log" class="log"></pre>
+  </section>
+
+  <footer>
+    <a id="openCourse" href="https://mooc1.chaoxing.com/visit/interaction" target="_blank">打开课程列表 ↗</a>
+  </footer>
+
+  <script src="panel.js"></script>
+</body>
+</html>

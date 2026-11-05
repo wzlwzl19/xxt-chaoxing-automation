@@ -1,0 +1,5 @@
+# dsh-panel-xuexitong —— 把面板插进 dsh 的配置树
+# 安装：DSH 插件页添加本地包，或 dsh plugin add link:<本目录绝对路径>
+- insert:
+    - id: dsh-panel-xuexitong
+      name: dsh-panel-xuexitong

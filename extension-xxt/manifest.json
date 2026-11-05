@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "学习通刷课助手 · 专属",
+  "version": "1.0.2",
+  "description": "侧边栏控制学习通视频自动播放与章节答题，Key 只存本机，不上传。",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "*://*.chaoxing.com/*",
+    "https://api.deepseek.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "panel.html"
+  },
+  "action": {
+    "default_title": "打开学习通刷课助手",
+    "default_icon": {
+      "16": "icons/16.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.chaoxing.com/mycourse/studentstudy*",
+        "*://*.chaoxing.com/mooc2-ans/mycourse/studentstudy*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "engine.js"
+      ],
+      "matches": [
+        "*://*.chaoxing.com/*"
+      ]
+    }
+  ]
+}

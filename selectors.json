@@ -1,0 +1,37 @@
+{
+  "loginPhone": [
+    "#phone",
+    "input[name=\"phone\"]",
+    ".ipt-tel"
+  ],
+  "loginPwd": [
+    "#pwd",
+    "input[type=\"password\"]",
+    ".ipt-pwd"
+  ],
+  "loginBtn": [
+    "#loginBtn",
+    ".btns-box",
+    "button.btn-big-blue"
+  ],
+  "courseTab": [
+    ".tab-item[coursetype=\"1\"]",
+    ".course-tab .tab-item:nth-child(2)"
+  ],
+  "courseCard": [
+    "a[href*=\"stucoursemiddle\"]",
+    "a[href*=\"studentcourse\"]"
+  ],
+  "chapterFrame": [
+    "studentcourse",
+    "studentstudy"
+  ],
+  "chapterItem": [
+    ".chapter_item",
+    "[onclick*=\"toOld\"]",
+    ".chapter_body .clicktitle"
+  ],
+  "panelHost": [
+    "#xt-ds-host"
+  ]
+}
